@@ -1,0 +1,21 @@
+class Solution {
+    public int fib(int n) {
+        if (n == 0) {
+            return 0;
+        } else if (n == 1) {
+            return 1;
+        }
+        return fibrec(n,0,1,1);
+    }
+    
+    public int fibrec(int n, int prev1, int prev2, int count) {
+        if (count == n) {
+            return prev2;
+        } else {
+            int total = prev1+prev2;
+            prev1 = prev2;
+            prev2 = total;
+            return fibrec(n, prev1, prev2, count+1);
+        }
+    }
+}
