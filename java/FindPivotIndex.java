@@ -8,28 +8,34 @@ If the index is on the left edge of the array, then the left sum is 0 because th
 Return the leftmost pivot index. If no such index exists, return -1.
 */
 
-
 class Solution {
     public int pivotIndex(int[] nums) {
-        for (int i = 0; i < nums.length; i++) {
-            int left = 0;
-            int right = 0;
-            for (int j = 0; j < i; j++) {
-                // add the current left values to the left sum
-                left += nums[j];
-            }
-            
-            for (int j = nums.length-1; j > i; j--) {
-                // add the current right values to the right sum
-                right += nums[j];
-            }
-            
+
+        int right = 0;
+        int left = 0;
+
+        // take the sum of the right array
+        for (int i = 1; i < nums.length; i++) {
+            right += nums[i];
+        }
+
+        if (right == 0) {
+            // check first case
+            return 0;
+        }
+
+        for (int i = 1; i < nums.length; i++) {
+            // add new value to left array and subtract value at pivot from right
+            left += nums[i-1];
+            right -= nums[i];
+   
             if (left == right) {
-                // if the left and right sum are equal, return the index
+                // if they are equal, return the index
                 return i;
             }
         }
-        // if there was no equal point, return -1
+        // they were never equal, so return -1
         return -1;
+        
     }
 }
