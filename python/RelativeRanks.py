@@ -1,21 +1,23 @@
-class Solution(object):
-    def findRelativeRanks(self, score):
+class Solution:
+    def findRelativeRanks(self, score: List[int]) -> List[str]:
         placement = 1
-        medalArray = []
-        for k in range(0,len(score)):
-            medalArray.append(" ")
+        medalArray = [0] * len(score)
+
         for i in range(len(score)):
-            cur = score[i]
-            for j in score:
-                if (cur< j):
-                    placement += 1
-            if (placement == 1):
-                medalArray[i] = "Gold Medal"
-            elif (placement == 2):
-                medalArray[i] = "Silver Medal"
-            elif (placement == 3):
-                medalArray[i] = "Bronze Medal"
-            else:
-                medalArray[i] = f"{placement}"
-            placement = 1
+            cur = max(score)
+            index = score.index(cur)
+            score[index] = -1        
+            match placement:
+                case 1:
+                    medalArray[index] = "Gold Medal"
+                case 2:
+                    medalArray[index] = "Silver Medal"
+                case 3:
+                    medalArray[index] = "Bronze Medal"
+                case _:
+                    medalArray[index] = f"{placement}"
+
+            placement += 1
+
+        return medalArray
         return medalArray
