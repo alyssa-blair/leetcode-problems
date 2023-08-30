@@ -39,10 +39,11 @@ class Solution {
     
     public int findId(List<Employee> emp, int id) {
         int i = 0;
-        for (i = 0; i < emp.size(); i++) {
+        qhile (i < emp.size()) {
             if (emp.get(i).id == id) {
                 return i;
             }
+            i++;
         }
         return i;
     }
