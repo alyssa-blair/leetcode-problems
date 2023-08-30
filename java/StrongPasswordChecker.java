@@ -45,9 +45,6 @@ class Solution {
         }
 
         // if any requirements were missed, return false
-        if (!lower || !upper || !digit || !special)
-            return false;
-        return true;
-     
+        return lower && upper && digit && special;
     }
 }
