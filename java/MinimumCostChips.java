@@ -27,10 +27,6 @@ class Solution {
         }
         
         // return the lower moves
-        if (even > odd) {
-            return odd;
-        } else {
-            return even;
-        }
+        return (even > odd ? odd : even);
     }
 }
