@@ -30,9 +30,6 @@ class Solution {
         }
         
         // if the sum is also the num, return true
-        if (sum == num) {
-            return true;
-        }
-        return false;
+        return sum == num;
     }
 }
