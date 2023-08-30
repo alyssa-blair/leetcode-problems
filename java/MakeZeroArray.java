@@ -32,9 +32,7 @@ class Solution {
         // find the lowest value in the array that is not 0
         for (int i = 1; i < nums.length; i++) {
             int cur = nums[i];
-            if (lowest == 0 && cur != 0) {
-                lowest = cur;
-            } else if (cur != 0 && cur < lowest) {
+            if (cur != 0 && (lowest == 0 || cur < lowest)) {
                 lowest = cur;
             }
         }
