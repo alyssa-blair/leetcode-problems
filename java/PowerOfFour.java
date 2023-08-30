@@ -12,11 +12,7 @@ class Solution {
         while (val > 4) {
             val = val / 4;
         }
-       
-        if (val == 1 || val == 4) {
-            return true;
-        } else {
-            return false;
-        }
+
+        return val == 1 || val == 4;
     }
 }
